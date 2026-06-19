@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const data = JSON.parse(fs.readFileSync('content.json', 'utf8'));
+const iconSvg = fs.readFileSync('snake_dark.svg', 'utf8').trim();
 
 function esc(s) {
   return String(s)
@@ -118,6 +119,7 @@ const html = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(d.meta.title)}</title>
 <meta name="description" content="${esc(d.bio)}">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -178,7 +180,7 @@ const html = `<!DOCTYPE html>
 <nav id="mrj-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:var(--navbg);border-bottom:1px solid var(--border);">
   <div style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
     <a href="#top" style="display:flex;align-items:center;gap:11px;">
-      <svg width="32" height="32" viewBox="0 0 100 100" style="border-radius:10px;flex-shrink:0;"><rect width="100" height="100" fill="var(--accent)"/><text x="50" y="66" font-family="sans-serif" font-size="52" font-weight="700" fill="#06070a" text-anchor="middle">M</text></svg>
+      <span style="display:inline-block;width:36px;height:36px;flex-shrink:0;">${iconSvg.replace('viewBox', 'width="36" height="36" viewBox').replace(/<rect[^>]*fill="#1E2A38"[^>]*\/>/,'')}</span>
       <span style="font-weight:700;font-size:16px;letter-spacing:-0.02em;">${esc(d.name.first.split(' ')[0])} ${esc(d.name.last)}</span>
     </a>
     <div id="mrj-navlinks" style="display:flex;align-items:center;gap:30px;font-size:14px;font-weight:500;">
@@ -464,6 +466,7 @@ const html = `<!DOCTYPE html>
 </html>`;
 
 const outDir = 'dist';
-if (!require('fs').existsSync(outDir)) require('fs').mkdirSync(outDir);
+if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+fs.copyFileSync('snake_dark.svg', path.join(outDir, 'favicon.svg'));
 console.log('Built dist/index.html (' + Math.round(Buffer.byteLength(html) / 1024) + ' KB)');
