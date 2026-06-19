@@ -191,7 +191,7 @@ const html = `<!DOCTYPE html>
   <div style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
     <a href="#top" style="display:flex;align-items:center;gap:11px;">
       <span style="display:inline-block;width:36px;height:36px;flex-shrink:0;">${iconSvg.replace('viewBox', 'width="36" height="36" viewBox').replace(/<rect[^>]*fill="#1E2A38"[^>]*\/>/,'')}</span>
-      <span style="font-weight:700;font-size:16px;letter-spacing:-0.02em;">${esc(d.name.first.split(' ')[0])} ${esc(d.name.last)}</span>
+      <span style="font-weight:700;font-size:16px;letter-spacing:-0.02em;">${esc(d.name.first)} ${esc(d.name.last)}</span>
     </a>
     <div id="mrj-navlinks" style="display:flex;align-items:center;gap:30px;font-size:14px;font-weight:500;">
       <a href="#work"      data-nav="work"      style="color:var(--muted);transition:color .2s;">Work</a>
