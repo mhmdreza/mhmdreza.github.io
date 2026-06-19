@@ -22,8 +22,8 @@
     "title": "AI Software Engineer",
     "company": "Heisenberg Network",
     "companyUrl": "https://heisenberg.so",
-    "description": "Go-based backend services for AI-powered data retrieval and real-time market intelligence — LLMs, data pipelines, and event streaming at scale.",
-    "tags": ["Go", "LLMs", "Event Streaming"]
+    "description": "Building Go-based backend services for AI-powered data retrieval and real-time market intelligence — LLMs, data pipelines, and event streaming at scale across prediction markets.",
+    "tags": ["Go", "WebSockets", "LLMs", "Kafka", "MCP"]
   },
   "stats": [
     { "value": "8+", "label": "Years building software" },
@@ -38,8 +38,10 @@
       "title": "AI Software Engineer",
       "company": "Heisenberg Network",
       "bullets": [
-        "Building Go-based backend services for AI-powered data retrieval and real-time market intelligence.",
-        "Working extensively with LLMs, data pipelines, and event streaming to deliver intelligent, data-driven analytics at scale."
+        "Built a Go WebSocket streaming service for real-time market event subscriptions — per-user billing, JWT auth, and a Redis-backed filter registry for scraper-side event routing.",
+        "Contributed to and improved an LLM-powered semantic retrieval API that maps natural-language prompts to SQL via agent selection and parameter extraction; supports MCP protocol.",
+        "Designed Kafka-based event pipelines ingesting live trade and orderbook data from multiple prediction market platforms.",
+        "Deployed and maintained services on Kubernetes with automated DB secrets rotation on AWS."
       ]
     },
     {
@@ -77,20 +79,34 @@
       ]
     }
   ],
-  "featuredProject": {
-    "badge": "National platform · 2024",
-    "title": "Ba-Energy",
-    "titleSuffix": "(MCI)",
-    "description": "Led end-to-end development and scaling of a national platform helping electricity consumers across Iran reduce energy consumption — using gamification and rewards to drive behavioral change.",
-    "tags": ["Django", "Microservices", "PostgreSQL", "Gamification"],
-    "metrics": [
-      { "count": 3,    "suffix": "M+",  "label": "users in 4 months" },
-      { "count": 4.6,  "decimals": 1, "suffix": "/5", "label": "rating · 12K reviews" },
-      { "count": 2900, "label": "max requests / sec" },
-      { "count": 160,  "suffix": "K",   "label": "new users / day peak" }
-    ],
-    "alsoLed": ["MCI Sport", "MCI Game"]
-  },
+  "projects": [
+    {
+      "badge": "National platform · 2024",
+      "title": "Ba-Energy",
+      "titleSuffix": "(MCI)",
+      "description": "Led end-to-end development and scaling of a national platform helping electricity consumers across Iran reduce energy consumption — using gamification and rewards to drive behavioral change.",
+      "tags": ["Django", "Microservices", "PostgreSQL", "Gamification"],
+      "metrics": [
+        { "count": 3,    "suffix": "M+",  "label": "users in 4 months" },
+        { "count": 4.6,  "decimals": 1, "suffix": "/5", "label": "rating · 12K reviews" },
+        { "count": 2900, "label": "max requests / sec" },
+        { "count": 160,  "suffix": "K",   "label": "new users / day peak" }
+      ],
+      "alsoLed": ["MCI Sport", "MCI Game"]
+    },
+    {
+      "badge": "Market Intelligence · 2026",
+      "title": "Heisenberg Network",
+      "url": "https://heisenberg.so",
+      "description": "Real-time market intelligence platform — a WebSocket streaming service for live event subscriptions with per-user billing and filter routing, paired with an LLM-powered semantic retrieval API that maps natural-language queries to SQL via agent selection. Kafka pipelines ingest live data from multiple prediction market platforms.",
+      "tags": ["Go", "WebSockets", "Kafka", "LLMs", "MCP", "Redis", "Kubernetes"],
+      "highlights": [
+        "WebSocket streaming with Redis-backed filter registry and per-user billing",
+        "LLM semantic retrieval — natural language → agent selection → SQL execution",
+        "Kafka pipelines across Polymarket, Kalshi, and Hyperliquid"
+      ]
+    }
+  ],
   "skills": [
     {
       "category": "Languages & Frameworks",

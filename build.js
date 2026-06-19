@@ -110,7 +110,47 @@ function renderHonor(h) {
 }
 
 const d = data;
-const p = d.featuredProject;
+
+function renderProjectFeatured(p) {
+  return `
+    <div data-reveal="" style="border:1px solid var(--border);border-radius:22px;background:var(--surface);overflow:hidden;">
+      <div class="r-proj" style="padding:40px 40px 34px;display:grid;grid-template-columns:1fr 0.9fr;gap:48px;align-items:start;">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);padding:5px 11px;border:1px solid var(--border);border-radius:8px;">${esc(p.badge)}</div>
+          <h3 style="font-size:32px;font-weight:700;letter-spacing:-0.02em;margin:18px 0 0;">${esc(p.title)} <span style="font-weight:400;color:var(--faint);font-size:20px;">${esc(p.titleSuffix)}</span></h3>
+          <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:16px 0 0;max-width:460px;">${esc(p.description)}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;">
+            ${p.tags.map(t => `<span style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border-radius:8px;background:var(--surfaceHi);border:1px solid var(--border);color:var(--muted);">${esc(t)}</span>`).join('\n            ')}
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+          ${p.metrics.map(renderMetric).join('')}
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding:20px 40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <span style="font-size:13.5px;color:var(--faint);">Also led:</span>
+        ${p.alsoLed.map((n, i) => `${i > 0 ? '<span style="width:4px;height:4px;border-radius:50%;background:var(--faint);"></span>' : ''}<span style="font-size:14px;font-weight:500;">${esc(n)}</span>`).join('\n        ')}
+      </div>
+    </div>`;
+}
+
+function renderProjectSimple(p) {
+  const titleHtml = p.url
+    ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:inherit;">${esc(p.title)}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>`
+    : esc(p.title);
+  return `
+    <div data-reveal="" data-tilt="" style="transition:border-color .3s,background .3s;border:1px solid var(--border);border-radius:22px;background:var(--surface);padding:40px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);padding:5px 11px;border:1px solid var(--border);border-radius:8px;">${esc(p.badge)}</div>
+      <h3 style="font-size:26px;font-weight:700;letter-spacing:-0.02em;margin:18px 0 0;">${titleHtml}</h3>
+      <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:16px 0 0;max-width:640px;">${esc(p.description)}</p>
+      <ul style="margin:20px 0 0;padding-left:18px;color:var(--muted);font-size:15px;line-height:1.7;">
+        ${p.highlights.map(h => `<li>${esc(h)}</li>`).join('\n        ')}
+      </ul>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;">
+        ${p.tags.map(t => `<span style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border-radius:8px;background:var(--surfaceHi);border:1px solid var(--border);color:var(--muted);">${esc(t)}</span>`).join('\n        ')}
+      </div>
+    </div>`;
+}
 
 const html = `<!DOCTYPE html>
 <!--
@@ -292,24 +332,8 @@ const html = `<!DOCTYPE html>
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">02 — Selected work</div>
       <h2 style="font-size:clamp(32px,4.4vw,52px);font-weight:700;letter-spacing:-0.03em;margin:0;">Projects that scaled</h2>
     </div>
-    <div data-reveal="" style="border:1px solid var(--border);border-radius:22px;background:var(--surface);overflow:hidden;">
-      <div class="r-proj" style="padding:40px 40px 34px;display:grid;grid-template-columns:1fr 0.9fr;gap:48px;align-items:start;">
-        <div>
-          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);padding:5px 11px;border:1px solid var(--border);border-radius:8px;">${esc(p.badge)}</div>
-          <h3 style="font-size:32px;font-weight:700;letter-spacing:-0.02em;margin:18px 0 0;">${esc(p.title)} <span style="font-weight:400;color:var(--faint);font-size:20px;">${esc(p.titleSuffix)}</span></h3>
-          <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:16px 0 0;max-width:460px;">${esc(p.description)}</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;">
-            ${p.tags.map(t => `<span style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border-radius:8px;background:var(--surfaceHi);border:1px solid var(--border);color:var(--muted);">${esc(t)}</span>`).join('\n            ')}
-          </div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-          ${p.metrics.map(renderMetric).join('')}
-        </div>
-      </div>
-      <div style="border-top:1px solid var(--border);padding:20px 40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-        <span style="font-size:13.5px;color:var(--faint);">Also led:</span>
-        ${p.alsoLed.map((n, i) => `${i > 0 ? '<span style="width:4px;height:4px;border-radius:50%;background:var(--faint);"></span>' : ''}<span style="font-size:14px;font-weight:500;">${esc(n)}</span>`).join('\n        ')}
-      </div>
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      ${d.projects.map(p => p.metrics ? renderProjectFeatured(p) : renderProjectSimple(p)).join('')}
     </div>
   </section>
 
