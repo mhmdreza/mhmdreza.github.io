@@ -113,6 +113,16 @@ const d = data;
 const p = d.featuredProject;
 
 const html = `<!DOCTYPE html>
+<!--
+  hey, you view-source too.
+
+  built with:  Node.js  ·  zero dependencies
+  designed by: Mohamad Reza Jafarzade
+  source:      github.com/mhmdreza/mhmdreza.github.io
+
+  if you're hiring or just want to talk systems:
+  → mrezajafarzade98@gmail.com
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -458,6 +468,28 @@ const html = `<!DOCTYPE html>
   ['work', 'projects', 'skills', 'education'].forEach(function(id) {
     var s = document.getElementById(id);
     if (s) navIo.observe(s);
+  });
+})();
+
+// ─── Konami Code ──────────────────────────────────────────────────────────────
+(function() {
+  var SEQ = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
+  var pos = 0;
+  document.addEventListener('keydown', function(e) {
+    if (e.code === SEQ[pos]) { pos++; } else { pos = e.code === SEQ[0] ? 1 : 0; }
+    if (pos < SEQ.length) return;
+    pos = 0;
+    var overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(8,16,12,0.88);backdrop-filter:blur(8px);animation:mrjFadeIn .25s ease;';
+    overlay.innerHTML = '<div style="font-family:\\'JetBrains Mono\\',monospace;text-align:center;padding:48px 56px;border:1px solid var(--accent);border-radius:20px;background:var(--surface);box-shadow:0 0 80px -20px var(--accent);">' +
+      '<div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">cheat code activated</div>' +
+      '<div style="font-size:42px;font-weight:700;letter-spacing:-0.03em;margin-bottom:12px;">+30 <span style="color:var(--accent);">respect</span></div>' +
+      '<div style="font-size:15px;color:var(--muted);margin-bottom:8px;">you know the old ways.</div>' +
+      '<div style="font-size:13px;color:var(--faint);margin-top:24px;">↑↑↓↓←→←→BA &nbsp;·&nbsp; press Esc to close</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function() { overlay.remove(); });
+    document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); } });
   });
 })();
 
