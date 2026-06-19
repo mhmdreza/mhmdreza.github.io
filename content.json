@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "Mohamad Reza Jafarzade — Software Engineer",
+    "year": "2026"
+  },
+  "name": {
+    "first": "Mohamad Reza",
+    "last": "Jafarzade"
+  },
+  "tagline": "Software Engineer · Backend & AI",
+  "availability": "Available for new opportunities",
+  "bio": "I build scalable, high-performance backend systems — from Go-based AI data pipelines to Django platforms serving millions. Strong in system design, with a track record of leading teams to ship products that scale.",
+  "location": "Tehran, Iran",
+  "openToRemote": true,
+  "email": "mrezajafarzade98@gmail.com",
+  "links": {
+    "linkedin": "https://linkedin.com/in/mrezajafarzade98",
+    "github": "https://github.com/mhmdreza",
+    "telegram": "https://t.me/Mrezaaaj"
+  },
+  "currentRole": {
+    "title": "AI Software Engineer",
+    "company": "Heisenberg Network",
+    "companyUrl": "https://heisenberg.so",
+    "description": "Go-based backend services for AI-powered data retrieval and real-time market intelligence — LLMs, data pipelines, and event streaming at scale.",
+    "tags": ["Go", "LLMs", "Event Streaming"]
+  },
+  "stats": [
+    { "value": "8+", "label": "Years building software" },
+    { "value": "3M+", "label": "Users reached at scale" },
+    { "value": "2",   "label": "Degrees from Sharif Univ." },
+    { "value": "Go · Py", "accentChar": "·", "label": "Backend at the core" }
+  ],
+  "experience": [
+    {
+      "period": "2026 — Present",
+      "location": "Canada · Remote",
+      "title": "AI Software Engineer",
+      "company": "Heisenberg Network",
+      "bullets": [
+        "Building Go-based backend services for AI-powered data retrieval and real-time market intelligence.",
+        "Working extensively with LLMs, data pipelines, and event streaming to deliver intelligent, data-driven analytics at scale."
+      ]
+    },
+    {
+      "period": "2022 — Present",
+      "location": "Tehran",
+      "title": "Software Engineer",
+      "titleSuffix": "· Backend",
+      "company": "Nilva",
+      "bullets": [
+        "Led end-to-end development for key projects — BaEnergy, MCI Sport, and MCI Game — building Django & Next.js solutions.",
+        "Designed scalable microservices managing high-volume, real-time data with seamless performance under thousands of concurrent users.",
+        "Worked across the full software lifecycle while mentoring junior developers on backend architecture and best practices.",
+        "Optimized infrastructure for high availability, reliability, and fault tolerance; partnered with product to turn business needs into technical solutions."
+      ]
+    },
+    {
+      "period": "2020 — 2022",
+      "location": "Tehran",
+      "title": "Backend Developer",
+      "titleSuffix": "· Django",
+      "company": "Hezardastan Group (Gharar)",
+      "bullets": [
+        "Transitioned from Android to backend development, focusing on Django and Python-based solutions.",
+        "Contributed to open-source projects including Jitsi and Ejabberd within one of Iran's largest tech holdings (Cafe Bazaar, Divar, Balad)."
+      ]
+    },
+    {
+      "period": "2018 — 2020",
+      "location": "Tehran",
+      "title": "Android Developer",
+      "company": "Soroush Messenger",
+      "bullets": [
+        "Started my career as an Android developer on a messaging app with 20M+ registered users.",
+        "Worked with the Telegram Android source code as an open-source foundation."
+      ]
+    }
+  ],
+  "featuredProject": {
+    "badge": "National platform · 2024",
+    "title": "Ba-Energy",
+    "titleSuffix": "(MCI)",
+    "description": "Led end-to-end development and scaling of a national platform helping electricity consumers across Iran reduce energy consumption — using gamification and rewards to drive behavioral change.",
+    "tags": ["Django", "Microservices", "PostgreSQL", "Gamification"],
+    "metrics": [
+      { "count": 3,    "suffix": "M+",  "label": "users in 4 months" },
+      { "count": 4.6,  "decimals": 1, "suffix": "/5", "label": "rating · 12K reviews" },
+      { "count": 2900, "label": "max requests / sec" },
+      { "count": 160,  "suffix": "K",   "label": "new users / day peak" }
+    ],
+    "alsoLed": ["MCI Sport", "MCI Game"]
+  },
+  "skills": [
+    {
+      "category": "Languages & Frameworks",
+      "items": ["Go", "Python", "Django", "React.js", "Next.js"]
+    },
+    {
+      "category": "Infrastructure & Data",
+      "items": ["AWS", "Kubernetes & GitOps", "Docker", "PostgreSQL"]
+    },
+    {
+      "category": "Engineering & Leadership",
+      "items": ["System Design", "Team Leadership", "LLMs & AI Systems"]
+    }
+  ],
+  "education": [
+    {
+      "period": "2022 — 2025",
+      "degree": "MBA — Strategy",
+      "school": "Sharif University of Technology"
+    },
+    {
+      "period": "2016 — 2021",
+      "degree": "B.Sc. Computer Engineering",
+      "school": "Sharif University of Technology"
+    }
+  ],
+  "honors": [
+    { "rank": "#13", "description": "National university entrance exam", "detail": "Math & Physics · 2016" },
+    { "rank": "#6",  "description": "National MBA entrance exam",        "detail": "2021" },
+    { "rank": "PM",  "description": "Product Management cert.",          "detail": "Bozhan School · 2022" }
+  ],
+  "contact": {
+    "subtext": "Open to backend and AI engineering roles — remote or on-site. Always happy to talk systems, scale, and good architecture."
+  },
+  "footer": {
+    "built": "Built & designed with care · Tehran"
+  }
+}
