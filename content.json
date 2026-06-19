@@ -95,7 +95,7 @@
       "alsoLed": ["MCI Sport", "MCI Game"]
     },
     {
-      "badge": "Market Intelligence · 2026",
+      "badge": "Market Intelligence · 2026 — Now",
       "title": "Heisenberg Network",
       "url": "https://heisenberg.so",
       "description": "Real-time market intelligence platform — a WebSocket streaming service for live event subscriptions with per-user billing and filter routing, paired with an LLM-powered semantic retrieval API that maps natural-language queries to SQL via agent selection. Kafka pipelines ingest live data from multiple prediction market platforms.",
