@@ -1,2 +1,5 @@
 dist/
 .idea/
+.venv/
+rendercv_output/
+Mohamad_Reza_Jafarzade_CV.yaml

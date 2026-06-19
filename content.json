@@ -95,6 +95,7 @@
       "alsoLed": ["MCI Sport", "MCI Game"]
     },
     {
+      "showInPdf": false,
       "badge": "Market Intelligence · 2026 — Now",
       "title": "Heisenberg Network",
       "url": "https://heisenberg.so",
