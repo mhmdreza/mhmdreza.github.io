@@ -64,15 +64,16 @@ def build_cv(d: dict) -> dict:
         name = proj["title"]
         if proj.get("url"):
             name = f"[{name}]({proj['url']})"
-        highlights = list(proj.get("highlights", []))
-        if proj.get("alsoLed"):
-            highlights.append("Also led: " + ", ".join(proj["alsoLed"]))
-        if proj.get("metrics"):
-            for m in proj["metrics"]:
-                val = m["count"]
-                if isinstance(val, float):
-                    val = f"{val:.{m.get('decimals', 0)}f}"
-                highlights.append(f"{val}{m.get('suffix', '')} {m['label']}")
+        if proj.get("pdfHighlights") is not None:
+            highlights = list(proj["pdfHighlights"])
+        else:
+            highlights = list(proj.get("highlights", []))
+            if proj.get("metrics"):
+                for m in proj["metrics"]:
+                    val = m["count"]
+                    if isinstance(val, float):
+                        val = f"{val:.{m.get('decimals', 0)}f}"
+                    highlights.append(f"{val}{m.get('suffix', '')} {m['label']}")
 
         badge = proj.get("badge", "")
         date_match = re.search(r"(\d{4})\s*[—–]\s*(Now|Present|now|present)", badge)
@@ -85,12 +86,12 @@ def build_cv(d: dict) -> dict:
             if year_match:
                 date_kw = year_match.group(1)
 
+        if date_kw:
+            name = f"{name} ({date_kw})"
         entry: dict = {"name": name, "summary": proj["description"]}
         if start_date:
             entry["start_date"] = start_date
             entry["end_date"] = end_date
-        elif date_kw:
-            entry["date"] = date_kw
         if highlights:
             entry["highlights"] = highlights
         projects.append(entry)
@@ -200,7 +201,7 @@ def check_ats(pdf_path: Path, d: dict) -> None:
     checks.append(("Section order (name → exp → edu)", order_ok, ""))
 
     # Page count via form-feed character
-    pages = text.count("\f") + 1
+    pages = text.rstrip("\f").count("\f") + 1
     checks.append(("Page count 1–2", pages <= 2, f"{pages} page(s)"))
 
     # Contact info in first 20 lines
@@ -238,7 +239,7 @@ def main() -> None:
 
     rendercv_bin = Path(sys.executable).parent / "rendercv"
     result = subprocess.run(
-        [str(rendercv_bin), "render", str(yaml_path), "--output-folder", str(output_dir)],
+        [str(rendercv_bin), "render", str(yaml_path), "-o", str(output_dir)],
         cwd=root,
     )
     if result.returncode != 0:
