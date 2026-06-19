@@ -512,8 +512,146 @@ console.log(
 </body>
 </html>`;
 
+function render404() {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Page Not Found</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Space Grotesk', sans-serif; background: var(--bg, #08100c); color: var(--fg, #e9f3ec); -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  :root {
+    --bg: #08100c; --bg2: #0c1611; --surface: #101c16; --surfaceHi: #16251d;
+    --border: rgba(255,255,255,0.08); --fg: #e9f3ec; --muted: #93a89c;
+    --faint: #566a5e; --accent: #34d27e; --accent2: #2bb3a6;
+    --glow: rgba(52,210,126,0.16);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f3f6f3; --bg2: #ffffff; --surface: #ffffff; --surfaceHi: #f6faf6;
+      --border: rgba(16,40,28,0.10); --fg: #11201a; --muted: #51635a;
+      --faint: #93a89c; --accent: #0f9d63; --accent2: #0e8a7c;
+      --glow: rgba(15,157,99,0.10);
+    }
+  }
+  ::selection { background: var(--accent); color: #06070a; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes mrjFloatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.08); } }
+  @keyframes mrjFloatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,40px) scale(1.12); } }
+  @keyframes mrjBlink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  @keyframes mrjFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes mrjGlitch {
+    0%,100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+    5%       { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 2px); }
+    10%      { clip-path: inset(50% 0 30% 0); transform: translate(4px, -2px); }
+    15%      { clip-path: inset(80% 0 5%  0); transform: translate(-2px, 1px); }
+    20%,80%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  }
+  .f404-num {
+    font-size: clamp(96px, 22vw, 180px);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: var(--accent);
+    margin: 0;
+    position: relative;
+    display: inline-block;
+  }
+  .f404-num::before, .f404-num::after {
+    content: '404';
+    position: absolute;
+    inset: 0;
+    color: var(--accent2);
+    opacity: 0.5;
+    animation: mrjGlitch 5s ease-in-out infinite;
+  }
+  .f404-num::after { animation-delay: 0.3s; color: var(--fg); opacity: 0.12; }
+  .f404-terminal {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 28px 0 20px;
+    text-align: left;
+    animation: mrjFadeUp .7s cubic-bezier(.16,.84,.44,1) .15s both;
+  }
+  .f404-terminal .prompt { color: var(--accent); font-weight: 500; }
+  .f404-terminal .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: mrjBlink 1.2s ease-in-out infinite;
+  }
+  .f404-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 24px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #06070a;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: transform .2s, box-shadow .2s;
+    animation: mrjFadeUp .7s cubic-bezier(.16,.84,.44,1) .45s both;
+  }
+  .f404-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px -8px var(--glow); }
+</style>
+</head>
+<body>
+
+<div style="position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;">
+  <div style="position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 68%);filter:blur(60px);opacity:.16;animation:mrjFloatA 18s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-180px;left:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--accent2),transparent 68%);filter:blur(70px);opacity:.14;animation:mrjFloatB 22s ease-in-out infinite;"></div>
+  <div style="position:absolute;inset:0;background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:46px 46px;opacity:.5;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000,transparent 75%);"></div>
+</div>
+
+<div style="position:relative;z-index:1;text-align:center;padding:32px 24px;max-width:540px;width:100%;">
+  <div style="animation:mrjFadeUp .6s cubic-bezier(.16,.84,.44,1) both;">
+    <span class="f404-num">404</span>
+  </div>
+
+  <div class="f404-terminal">
+    <span class="prompt">[mrj]</span>
+    <span>404 not_found.go:1&nbsp;&nbsp;this page got lost.</span>
+    <span class="cursor"></span>
+  </div>
+
+  <p style="font-size:16px;color:var(--faint);margin:0 0 36px;animation:mrjFadeUp .7s cubic-bezier(.16,.84,.44,1) .3s both;">this route doesn't exist.</p>
+
+  <a href="/" class="f404-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+    Go home
+  </a>
+</div>
+
+</body>
+</html>`;
+}
+
 const outDir = 'dist';
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 fs.copyFileSync('snake_dark.svg', path.join(outDir, 'favicon.svg'));
 console.log('Built dist/index.html (' + Math.round(Buffer.byteLength(html) / 1024) + ' KB)');
+
+const html404 = render404();
+fs.writeFileSync(path.join(outDir, '404.html'), html404, 'utf8');
+console.log('Built dist/404.html (' + Math.round(Buffer.byteLength(html404) / 1024) + ' KB)');
