@@ -460,6 +460,21 @@ const html = `<!DOCTYPE html>
     if (s) navIo.observe(s);
   });
 })();
+
+// ─── Console ──────────────────────────────────────────────────────────────────
+console.log(
+  '%c[mrj]%c 2026/06/19 main.go:1  %chey, you open devtools too.%c\\n\\n' +
+  '  role      \\u2192  AI Software Engineer \\u00b7 Go & Backend\\n' +
+  '  stack     \\u2192  Go, Python, Django, LLMs, Event Streaming\\n' +
+  '  location  \\u2192  Tehran, Iran  \\u00b7  open to remote\\n' +
+  '  github    \\u2192  github.com/mhmdreza\\n' +
+  '  email     \\u2192  mrezajafarzade98@gmail.com\\n\\n' +
+  '  if you\\'re hiring: let\\'s talk.',
+  'background:#08100c;color:#34d27e;font-family:monospace;font-weight:700;padding:2px 6px;border-radius:4px;',
+  'color:#566a5e;font-family:monospace;',
+  'color:#e9f3ec;font-family:monospace;font-size:15px;font-weight:600;',
+  'color:#93a89c;font-family:monospace;line-height:1.9;'
+);
 </script>
 
 </body>
