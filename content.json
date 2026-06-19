@@ -26,7 +26,7 @@
     "tags": ["Go", "WebSockets", "LLMs", "Kafka", "MCP"]
   },
   "stats": [
-    { "value": "6+", "label": "Years building software" },
+    { "value": "5+", "label": "Years building software" },
     { "value": "3M+", "label": "Users reached at scale" },
     { "value": "2",   "label": "Degrees from Sharif Univ." },
     { "value": "Go · Py", "accentChar": "·", "label": "Backend at the core" }
@@ -51,14 +51,14 @@
       "titleSuffix": "· Backend",
       "company": "Nilva",
       "bullets": [
-        "Led end-to-end development for key projects — BaEnergy, MCI Sport, and MCI Game — building Django & Next.js solutions.",
-        "Designed scalable microservices managing high-volume, real-time data with seamless performance under thousands of concurrent users.",
-        "Worked across the full software lifecycle while mentoring junior developers on backend architecture and best practices.",
-        "Optimized infrastructure for high availability, reliability, and fault tolerance; partnered with product to turn business needs into technical solutions."
+        "Designed scalable services managing high-volume, real-time data with seamless performance under thousands of concurrent users.",
+        "Optimized infrastructure for high availability, reliability, and fault tolerance; partnered with product to turn business needs into technical solutions.",
+        "Grew into tech lead on key projects — BaEnergy, MCI Sport, and MCI Game — owning end-to-end delivery of Django & Next.js solutions.",
+        "Mentored junior developers on backend architecture and best practices."
       ]
     },
     {
-      "period": "2020 — 2022",
+      "period": "2021 — 2022",
       "location": "Tehran",
       "title": "Backend Developer",
       "titleSuffix": "· Django",
