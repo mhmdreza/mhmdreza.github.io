@@ -23,7 +23,7 @@
     "company": "Heisenberg Network",
     "companyUrl": "https://heisenberg.so",
     "description": "Building Go-based backend services for AI-powered data retrieval and real-time market intelligence — LLMs, data pipelines, and event streaming at scale across prediction markets.",
-    "tags": ["Go", "WebSockets", "LLMs", "Kafka", "MCP"]
+    "tags": ["Go", "WebSockets", "LLMs", "Kafka", "MCP", "Stripe"]
   },
   "stats": [
     { "value": "5+", "label": "Years building software" },
@@ -38,10 +38,10 @@
       "title": "AI Software Engineer",
       "company": "Heisenberg Network",
       "bullets": [
-        "Contributed to Heisenberg's real-time market intelligence platform — aggregating live data from prediction markets (Polymarket, Kalshi) and delivering actionable intelligence to end users.",
-        "Built a Go WebSocket service for real-time market event subscriptions — per-user billing, JWT auth, and Redis-backed filter routing.",
-        "Worked on an LLM semantic retrieval API mapping natural-language prompts to SQL via agent selection; MCP-compatible.",
-        "Owned service deployment and infrastructure on Kubernetes (AWS)."
+        "Contributed to Heisenberg's real-time market intelligence platform — aggregating live data from prediction markets (Polymarket, Kalshi, Hyperliquid, Limitless) and delivering actionable intelligence to end users.",
+        "Built a Go WebSocket service for real-time market event subscriptions — wallet-based credit billing, JWT auth, and Redis-backed filter routing with operator and range expressions.",
+        "Built an LLM semantic retrieval API mapping natural-language prompts to SQL via agent selection, with retry-aware planning and MCP multi-domain support (Go-native SDK).",
+        "Owned service deployment and infrastructure on Kubernetes (AWS), including automated health-checks and alerting for data freshness."
       ]
     },
     {
@@ -92,12 +92,12 @@
       "badge": "Market Intelligence · 2026 — Now",
       "title": "Heisenberg Network",
       "url": "https://heisenberg.so",
-      "description": "Real-time market intelligence platform — a WebSocket streaming service for live event subscriptions with per-user billing and filter routing, paired with an LLM-powered semantic retrieval API that maps natural-language queries to SQL via agent selection. Kafka pipelines ingest live data from multiple prediction market platforms.",
+      "description": "Real-time market intelligence platform — a WebSocket streaming service for live event subscriptions with wallet-based billing and filter routing, paired with an LLM-powered semantic retrieval API that maps natural-language queries to SQL via agent selection. Kafka pipelines ingest live data from multiple prediction market platforms.",
       "tags": ["Go", "WebSockets", "Kafka", "LLMs", "MCP", "Redis", "Kubernetes"],
       "highlights": [
-        "WebSocket streaming with Redis-backed filter registry and per-user billing",
-        "LLM semantic retrieval — natural language → agent selection → SQL execution",
-        "Kafka pipelines across Polymarket, Kalshi, and Hyperliquid"
+        "WebSocket streaming with Redis-backed filter registry and wallet-based credit billing",
+        "LLM semantic retrieval — natural language → agent selection → SQL execution, MCP multi-domain",
+        "Kafka pipelines across Polymarket, Kalshi, Hyperliquid, and Limitless"
       ]
     }
   ],
