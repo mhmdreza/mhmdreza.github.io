@@ -56,7 +56,8 @@
         "Designed scalable services managing high-volume, real-time data with seamless performance under thousands of concurrent users.",
         "Optimized infrastructure for high availability, reliability, and fault tolerance; partnered with product to turn business needs into technical solutions.",
         "Grew into tech lead on key projects — BaEnergy, MCI Sport, and MCI Game — owning end-to-end delivery of Django & Next.js solutions.",
-        "Mentored junior developers on backend architecture and best practices."
+        "Mentored junior developers on backend architecture, best practices, and code review.",
+        "Maintained unit and integration test coverage for Django services, run in CI on every merge request."
       ]
     },
     {
