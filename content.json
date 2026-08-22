@@ -42,7 +42,8 @@
         "Contributed to Heisenberg's real-time market intelligence platform — aggregating live data from prediction markets (Polymarket, Kalshi, Hyperliquid, Limitless) and delivering actionable intelligence to end users.",
         "Built a Go WebSocket service for real-time market event subscriptions — wallet-based credit billing, JWT auth, and Redis-backed filter routing with operator and range expressions.",
         "Built an LLM semantic retrieval API mapping natural-language prompts to SQL via agent selection, with retry-aware planning and MCP multi-domain support (Go-native SDK).",
-        "Owned service deployment and infrastructure on Kubernetes (AWS), including automated health-checks and alerting for data freshness."
+        "Owned service deployment and infrastructure on Kubernetes (AWS), including automated health-checks and alerting for data freshness.",
+        "Wrote unit tests for Go services, run automatically in CI on every push to keep releases stable."
       ]
     },
     {
