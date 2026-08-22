@@ -126,14 +126,22 @@ def build_cv(d: dict) -> dict:
 
     name = d["name"]
     links = d["links"]
-    social = []
+    custom_connections = []
     if "linkedin" in links:
-        social.append(
-            {"network": "LinkedIn", "username": links["linkedin"].rstrip("/").split("/")[-1]}
+        custom_connections.append(
+            {
+                "fontawesome_icon": "linkedin",
+                "placeholder": f"LinkedIn: {links['linkedin'].rstrip('/').split('/')[-1]}",
+                "url": links["linkedin"],
+            }
         )
     if "github" in links:
-        social.append(
-            {"network": "GitHub", "username": links["github"].rstrip("/").split("/")[-1]}
+        custom_connections.append(
+            {
+                "fontawesome_icon": "github",
+                "placeholder": f"GitHub: {links['github'].rstrip('/').split('/')[-1]}",
+                "url": links["github"],
+            }
         )
 
     return {
@@ -141,11 +149,13 @@ def build_cv(d: dict) -> dict:
             "name": f"{name['first']} {name['last']}",
             "location": d.get("location"),
             "email": d.get("email"),
-            "social_networks": social,
+            "phone": d.get("phone"),
+            "custom_connections": custom_connections,
             "sections": sections,
         },
         "design": {
             "theme": "classic",
+            "header": {"connections": {"phone_number_format": "international"}},
             "page": {
                 "size": "a4",
                 "top_margin": "1.5cm",
