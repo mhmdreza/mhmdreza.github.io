@@ -77,8 +77,8 @@
       "badge": "National platform · 2024",
       "title": "Ba-Energy",
       "titleSuffix": "(MCI)",
-      "description": "Led end-to-end development and scaling of a national platform helping electricity consumers across Iran reduce energy consumption — using gamification and rewards to drive behavioral change.",
-      "tags": ["Django", "Microservices", "PostgreSQL", "Gamification"],
+      "description": "Led end-to-end development and scaling of a national platform helping electricity consumers across Iran reduce energy consumption — backed by PostgreSQL at scale — using gamification and rewards to drive behavioral change.",
+      "tags": ["Django", "Modular Monolith", "PostgreSQL", "Gamification"],
       "metrics": [
         { "count": 3,    "suffix": "M+",  "label": "users in 4 months" },
         { "count": 4.6,  "decimals": 1, "suffix": "/5", "label": "rating · 12K reviews" },
