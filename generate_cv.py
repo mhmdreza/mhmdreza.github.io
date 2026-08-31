@@ -15,12 +15,28 @@ from pathlib import Path
 import ruamel.yaml
 
 
+_MONTHS = {
+    "jan": "01", "feb": "02", "mar": "03", "apr": "04", "may": "05", "jun": "06",
+    "jul": "07", "aug": "08", "sep": "09", "oct": "10", "nov": "11", "dec": "12",
+}
+
+
+def _normalize_date(value: str) -> str:
+    m = re.match(r"^([A-Za-z]+)\s+(\d{4})$", value)
+    if not m:
+        return value
+    month = _MONTHS.get(m.group(1).lower()[:3])
+    return f"{m.group(2)}-{month}" if month else value
+
+
 def parse_period(period: str) -> tuple[str, str | None]:
     parts = re.split(r"\s*[—–]\s*", period)
-    start = parts[0].strip()
+    start = _normalize_date(parts[0].strip())
     end = parts[1].strip() if len(parts) > 1 else None
     if end and end.lower() in ("present", "now", "ongoing"):
         end = "present"
+    elif end:
+        end = _normalize_date(end)
     return start, end
 
 
