@@ -3,3 +3,5 @@ dist/
 .venv/
 rendercv_output/
 Mohamad_Reza_Jafarzade_CV.yaml
+job_facts.json
+applications/
