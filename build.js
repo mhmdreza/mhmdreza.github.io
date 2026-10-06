@@ -262,6 +262,10 @@ const html = `<!DOCTYPE html>
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           Email me
         </a>
+        <a href="${esc(d.links.resume)}" download style="display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font-weight:600;font-size:15px;transition:transform .2s,border-color .2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          Resume
+        </a>
         <a href="${esc(d.links.linkedin)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font-weight:600;font-size:15px;transition:transform .2s,border-color .2s;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 18.34V10.6H5.79v7.74zM7.07 9.47a1.48 1.48 0 1 0 0-2.96 1.48 1.48 0 0 0 0 2.96zm11.27 8.87v-4.24c0-2.27-1.21-3.33-2.83-3.33a2.44 2.44 0 0 0-2.21 1.22h-.03V10.6h-2.45v7.74h2.55v-3.83c0-1.01.19-1.99 1.44-1.99s1.25 1.15 1.25 2.05v3.77z"/></svg>
           LinkedIn
@@ -373,6 +377,10 @@ const html = `<!DOCTYPE html>
         <a href="mailto:${esc(d.email)}" style="display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;background:var(--accent);color:#06070a;font-weight:600;font-size:15px;transition:transform .2s;">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           Email
+        </a>
+        <a href="${esc(d.links.resume)}" download style="display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:12px;border:1px solid var(--border);background:var(--surfaceHi);color:var(--fg);font-weight:600;font-size:15px;transition:transform .2s,border-color .2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          Resume
         </a>
         <a href="${esc(d.links.linkedin)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:12px;border:1px solid var(--border);background:var(--surfaceHi);color:var(--fg);font-weight:600;font-size:15px;transition:transform .2s,border-color .2s;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 18.34V10.6H5.79v7.74zM7.07 9.47a1.48 1.48 0 1 0 0-2.96 1.48 1.48 0 0 0 0 2.96zm11.27 8.87v-4.24c0-2.27-1.21-3.33-2.83-3.33a2.44 2.44 0 0 0-2.21 1.22h-.03V10.6h-2.45v7.74h2.55v-3.83c0-1.01.19-1.99 1.44-1.99s1.25 1.15 1.25 2.05v3.77z"/></svg>
@@ -680,6 +688,8 @@ const outDir = 'dist';
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
 fs.copyFileSync('snake_dark.svg', path.join(outDir, 'favicon.svg'));
+// Resume + interview book live in tracked downloads/ (written by generate_cv.py / build_public_book.py).
+if (fs.existsSync('downloads')) fs.cpSync('downloads', path.join(outDir, 'downloads'), { recursive: true });
 console.log('Built dist/index.html (' + Math.round(Buffer.byteLength(html) / 1024) + ' KB)');
 
 const html404 = render404();

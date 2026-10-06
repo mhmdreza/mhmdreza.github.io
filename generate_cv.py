@@ -8,11 +8,16 @@
 
 import json
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 import ruamel.yaml
+
+# Fixed name so the site's resume link never changes.
+RESUME_FILE = "Mohamad_Reza_Jafarzade_CV.pdf"
+RENDERCV_SPEC = "rendercv[full]==2.8"
 
 
 _MONTHS = {
@@ -263,9 +268,11 @@ def main() -> None:
     write_yaml(cv, yaml_path)
     print(f"Generated {yaml_path.name}")
 
-    rendercv_bin = Path(sys.executable).parent / "rendercv"
+    # rendercv >=2.4 (needed for design.header.connections) requires Python >=3.12,
+    # newer than .venv, so it runs in its own uvx environment.
     result = subprocess.run(
-        [str(rendercv_bin), "render", str(yaml_path), "-o", str(output_dir)],
+        ["uvx", "--python", "3.13", "--from", RENDERCV_SPEC, "rendercv",
+         "render", str(yaml_path), "-o", str(output_dir)],
         cwd=root,
     )
     if result.returncode != 0:
@@ -281,6 +288,11 @@ def main() -> None:
             pdf_path = pdfs[0]
     if pdf_path.exists():
         check_ats(pdf_path, d)
+        # downloads/ is tracked and served by GitHub Pages, so the site always links the latest resume.
+        downloads = root / "downloads"
+        downloads.mkdir(exist_ok=True)
+        shutil.copyfile(pdf_path, downloads / RESUME_FILE)
+        print(f"Copied resume to downloads/{RESUME_FILE}")
 
 
 if __name__ == "__main__":
