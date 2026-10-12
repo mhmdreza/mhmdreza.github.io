@@ -22,7 +22,7 @@
   },
   "currentRole": {
     "title": "AI Software Engineer",
-    "company": "Heisenberg Network",
+    "company": "Heisenberg Network (Noraya)",
     "companyUrl": "https://heisenberg.so",
     "description": "Building Go-based backend services for AI-powered data retrieval and real-time market intelligence — LLMs, data pipelines, and event streaming at scale across prediction markets.",
     "tags": ["Go", "WebSockets", "LLMs", "Kafka", "MCP", "Stripe"]
@@ -36,9 +36,9 @@
   "experience": [
     {
       "period": "Mar 2026 — Present",
-      "location": "Tehran · Hybrid",
+      "location": "Canada · Remote",
       "title": "AI Software Engineer",
-      "company": "Heisenberg Network",
+      "company": "Heisenberg Network (Noraya)",
       "bullets": [
         "Contributed to Heisenberg's real-time market intelligence platform — aggregating live data from prediction markets (Polymarket, Kalshi, Hyperliquid, Limitless) and delivering actionable intelligence to end users.",
         "Built a Go WebSocket service for real-time market event subscriptions — wallet-based credit billing, JWT auth, and Redis-backed filter routing with operator and range expressions.",
