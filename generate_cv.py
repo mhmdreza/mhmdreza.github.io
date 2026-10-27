@@ -76,7 +76,7 @@ def build_cv(d: dict) -> dict:
                 "highlights": job["bullets"],
             }
         )
-    sections["experience"] = exp
+    sections["work_history"] = exp
 
     projects = []
     for proj in d["projects"]:
@@ -217,19 +217,19 @@ def check_ats(pdf_path: Path, d: dict) -> None:
     checks.append(("Email present", email in text, email))
 
     # Key sections
-    for section in ("Experience", "Education", "Skills", "Summary"):
+    for section in ("Work History", "Education", "Skills", "Summary"):
         checks.append((f"Section: {section}", section in text, ""))
 
     # No garbled ligatures (common PDF-to-text artifact)
     garbled = any(c in text for c in ("ï¬", "ﬁ", "ﬀ", "ﬃ", "�"))
     checks.append(("No garbled characters", not garbled, "check for ligature artifacts"))
 
-    # Logical order: name before experience before education
+    # Logical order: name before work history before education
     name_pos = text.find(full_name)
-    exp_pos = text.find("Experience")
+    exp_pos = text.find("Work History")
     edu_pos = text.find("Education")
     order_ok = 0 <= name_pos < exp_pos < edu_pos
-    checks.append(("Section order (name → exp → edu)", order_ok, ""))
+    checks.append(("Section order (name → work history → edu)", order_ok, ""))
 
     # Page count via form-feed character
     pages = text.rstrip("\f").count("\f") + 1
